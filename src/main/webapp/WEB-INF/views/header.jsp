@@ -43,7 +43,7 @@ a {
 						<th>${member.userid}님 하이!!</th>
 					</tr>
 					<tr>
-						<th colspan="2"><a>로그아웃</a></th>
+						<th colspan="2"><a>로그아웃 </a></th>
 					</tr>
 				</c:when>
 				<c:otherwise>
