@@ -38,12 +38,21 @@ a {
 		</nav>
 		<table id="loginFrm">
 			<c:choose>
-				<c:when test="${member != null }">
+				<c:when test="${loginUser != null }">
 					<tr>
-						<th>${member.userid}님 하이!!</th>
+						<th>${loginUser.username }님</th>
+						<th><a href="logout.do">로그아웃</a></th>
+						<c:url var="minfo" value="myinfo.do">
+							<c:param name="userid" value="${loginUser.userid}"/>
+						</c:url>
 					</tr>
 					<tr>
-						<th colspan="2"><a>로그아웃 </a></th>
+						<th><a href="${minfo}">내정보보기</a></th>
+						<th><a>공지글쓰기</a></th>
+					</tr>
+					<tr>
+						<th><a>메일확인</a></th>
+						<th><a>쪽지확인</a></th>
 					</tr>
 				</c:when>
 				<c:otherwise>
@@ -57,7 +66,7 @@ a {
 						</tr>
 						<tr>
 							<th colspan="2"><a>아이디/암호분실시</a> &nbsp; <a
-								href="enrollForm.do">회원가입</a></th>
+								href="moveEnroll.do">회원가입</a></th>
 						</tr>
 					</form>
 				</c:otherwise>

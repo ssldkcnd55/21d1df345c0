@@ -23,6 +23,11 @@ public class MemberDao {
 		// TODO Auto-generated method stub
 		return sqlSession.insert("insertMember", m);
 	}
+
+	public Member myInfo(String userid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("myinfo",userid);
+	}
 	
 
 }

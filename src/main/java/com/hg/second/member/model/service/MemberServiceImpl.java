@@ -20,6 +20,12 @@ public class MemberServiceImpl implements MemberService{
 		//로그인처리용
 		return memberDao.selectMember(member);
 	}
+	
+	@Override
+	public Member myInfo(String userid) {
+		// 회원정보조회
+		return memberDao.myInfo(userid);
+	}
 
 	@Override
 	public ArrayList<Member> selectAll() {
@@ -50,6 +56,8 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 	
 
 }

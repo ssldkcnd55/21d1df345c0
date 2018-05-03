@@ -152,7 +152,7 @@ section form table th {
 				<tr height="40">
 					<th width="150" colspan="2"><input type="submit"
 						value="가입하기"> &nbsp; <input type="reset"
-						value="작성취소"> &nbsp; <a href="enrollForm.do">시작페이지로</a>
+						value="작성취소"> &nbsp; <a href="moveEnroll.do">시작페이지로</a>
 					</th>
 				</tr>
 			</table>

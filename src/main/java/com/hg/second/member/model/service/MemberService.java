@@ -11,6 +11,7 @@ public interface MemberService {
 	/*public static final int MID=1; - 상수필드*/
 	
 	/*public abstract */Member selectMember(Member member);
+	Member myInfo(String userid);
 	ArrayList<Member> selectAll();
 	Member selectOne(String userid);
 	int insertMember(Member member);

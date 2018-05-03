@@ -4,6 +4,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
+	<resultMap type="Member" id="resultMember">
+		<id column="userid" property="userid"/>
+		<result column="userpwd" property="userpwd"/>	
+		<result column="username" property="username"/>	
+		<result column="gender" property="gender"/>	
+		<result column="age" property="age"/>	
+		<result column="phone" property="phone"/>	
+		<result column="email" property="email"/>	
+		<result column="hobby" property="hobby"/>	
+		<result column="etc" property="etc"/>	
+		<result column="enroll_date" property="enroll_date"/>	
+		<result column="lastmodified" property="lastmodified"/>	
+	</resultMap>
+
 	<select id="loginMember" parameterType="Member"
 		resultType="Member">
 		<![CDATA[
@@ -18,4 +32,12 @@
 		 insert into member values (#{userid}, #{userpwd}, #{username}, #{gender}, #{age}, #{phone}, #{email}, #{hobby},#{etc} , sysdate, sysdate)
 		 ]]> 
 	</insert>
+	
+	<select id="myinfo" parameterType="string" resultMap="resultMember">
+		<![CDATA[
+			select * from member where userid=#{userid}		
+		]]>	
+	</select>
+	
+	
 </mapper>

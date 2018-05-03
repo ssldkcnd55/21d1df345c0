@@ -4,7 +4,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.hg.second.member.model.vo.Member" alias="Member" />
+		<typeAlias type="com.hg.second.member.model.vo.Member" alias="member" />
 	</typeAliases>
 
 	<mappers>
