@@ -34,6 +34,7 @@ a {
 				<li><a>게시글</a></li>
 				<li><a>QnA</a></li>
 				<li><a>자료실</a></li>
+				<li><a href="testView.do">테스트 페이지 이동</a></li>
 			</ul>
 		</nav>
 		<table id="loginFrm">

@@ -21,7 +21,7 @@
 	<select id="loginMember" parameterType="Member"
 		resultType="Member">
 		<![CDATA[
-			select * from member where userid=#{userid} and userpwd=#{userpwd}
+			select * from member where userid=#{userid}
 		]]>
 	</select>
 

@@ -8,6 +8,7 @@ import javax.websocket.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,31 +31,46 @@ public class MemberController {
 			LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
+	@Autowired
+	private BCryptPasswordEncoder pwdEncoder; 
 
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	/*@ModelAttribute("loginUser")*/
-	public /*ModelAndView*/ String loginCheck(Member m, /*ModelAndView mv,*/Model model/*HttpSession session*/,SessionStatus status) {
+	public /*ModelAndView*/ String loginCheck(Member member, /*ModelAndView mv,*/Model model/*HttpSession session*/,SessionStatus status) {
 		
 		// 스프링에서는 메소드의 매개변수로 클래스명 레퍼런스 변수 선언하면 자동으로	 해당클래스에 대한 객체 생성이 된다
-		logger.info("loginCheck() run : "+ m);
-		System.out.println("전송와서 저장된 값 : " + m);
-
-		Member loginUser = memberService.selectMember(m);
-		System.out.println("loginUser : " + loginUser);
+		logger.info("loginCheck() run : "+ member);
+		System.out.println("전송와서 저장된 값 : " + member);
 		
+		Member loginUser = memberService.selectMember(member);
+		
+		try {
+			boolean check=pwdEncoder.matches(member.getUserpwd(),loginUser.getUserpwd());
+			
+			if(check==true) {
+				model.addAttribute("loginUser", loginUser);
+				status.setComplete();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			return "home";
+		}
+		
+		/*System.out.println("loginUser : " + loginUser);*/
 		//session로 할때
 		/*session.setAttribute("loginUser", loginUser);
 		status.setComplete();*/
 		
 		//model로 할때
-		model.addAttribute("loginUser", loginUser);
-		status.setComplete();
+/*		model.addAttribute("loginUser", loginUser);
+		status.setComplete();*/
 		
 		//mv로 할때
 		/*mv.addObject("loginUser", loginUser);
 		mv.setViewName("home");*/
-		return "home";
+		
 	}
 
 	
@@ -81,10 +97,10 @@ public class MemberController {
 	}
 
 	@RequestMapping("enroll.do")
-	public String enroll(Member m) {
+	public String enroll(Member member) {
 
-		System.out.println("enroll dao : "+m);
-		memberService.insertMember(m);
+		System.out.println("enroll dao : "+member);
+		memberService.insertMember(member);
 		return "home";
 	}
 
@@ -105,4 +121,20 @@ public class MemberController {
 		return "home";
 	}
 
+	@RequestMapping("testView.do")
+	public String moveTestView() {
+		return "test/testCrypto";
+	}
+	
+	@RequestMapping(value="bcryp.do", method=RequestMethod.POST)
+	public String testBcryptoPassword(Member member) {
+		System.out.println("암호  : "+member.getUserpwd());
+		System.out.println("암호화된 패스워드 : "+pwdEncoder.encode(member.getUserpwd()));
+		
+		member.setUserpwd(pwdEncoder.encode(member.getUserpwd()));
+		
+		System.out.println(member.getUserpwd().matches("$2a$10$V7Z3FVZ.JkX.UydnT1h36e4cF5p4rQVrkoRIPRLgaAONMn2Flz6.q"));
+		
+		return "test/testCrypto";
+	}
 }

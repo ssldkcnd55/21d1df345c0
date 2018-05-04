@@ -16,12 +16,13 @@ public class MemberDao {
 
 	public Member selectMember(Member member) {
 		// TODO Auto-generated method stub
+		System.out.println(member.getUserpwd());
 		return sqlSession.selectOne("loginMember",member);
 	}
 
-	public int insertMember(Member m) {
+	public int insertMember(Member member) {
 		// TODO Auto-generated method stub
-		return sqlSession.insert("insertMember", m);
+		return sqlSession.insert("insertMember", member);
 	}
 
 	public Member myInfo(String userid) {
