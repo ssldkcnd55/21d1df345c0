@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -129,6 +133,50 @@ public class TestController {
 		return mv;  //뷰리졸버로 전달되고, 요청한 ajax는 json 객체를 받음
 	}
 	
+
+	@RequestMapping(value="test5.do", method=RequestMethod.POST)
+	public ResponseEntity<String> test5Method(
+			/*HttpServletRequest request, */@RequestBody String param) 
+	throws Exception {
+		logger.info("test5.do method run...");
+		//request.setCharacterEncoding("utf-8");
+		
+		//전송온 json 문자열을 json 객체로 바꿈
+		JSONParser jparser = new JSONParser();
+		JSONObject job = (JSONObject)jparser.parse(param);
+		
+		String name = (String)job.get("name");
+		int age = ((Long)job.get("age")).intValue();
+		
+		System.out.println("name : " + name + ", age : " + age);
+		
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="test6.do", method=RequestMethod.POST)
+	public ResponseEntity<String> test6Method(
+			/*HttpServletRequest request, */@RequestBody String param) 
+	throws Exception {
+		logger.info("test5.do method run...");
+		//request.setCharacterEncoding("utf-8");
+		System.out.println("param : " + param);		
+		
+		//전송온 jsonArray 문자열을 jsonArray 객체로 바꿈
+		JSONParser jparser = new JSONParser();
+		JSONArray jarr = (JSONArray)jparser.parse(param);
+		System.out.println("jarr size : " + jarr.size());
+		
+		for(int i = 0; i < jarr.size(); i++) {
+			JSONObject job = (JSONObject)jarr.get(i);
+			String name = (String)job.get("name");
+			int age = ((Long)job.get("age")).intValue();
+			
+			System.out.println("name : " + name + ", age : " + age);
+		}
+		
+		//정상 완료됨을 클라이언트로 성공값 보냄
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+	}
 	
 	
 }

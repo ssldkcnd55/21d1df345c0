@@ -139,7 +139,35 @@
 		});
 		
 
-		$("#test6").on("click", function() {
+		$("#test6").on("click", function(){
+			//자바스크립트 | 제이쿼리에서 jsonArray 객체 만들어서
+			//서버 컨트롤러로 보내기
+			var jArray = [{"name": "이율곡", "age": 30},
+				{"name": "황진이", "age": 22},
+				{"name": "김춘추", "age": 27}];
+			
+			$.ajax({
+				url: "test6.do",
+				type: "post",
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify(jArray),
+				success: function(result){
+					alert("전송 성공 : " + result);
+					var values = $("#d6").html();
+					for(var i in jArray){
+						values += "이름 : " + jArray[i].name
+							+ ", 나이 : " + jArray[i].age
+							+ "<br>";
+					}
+					
+					$("#d6").html(values);
+				},
+				error: function(request, status, errorData){
+					alert("error code : " + request.status + "\n"
+							+ "message : " + request.responseText + "\n"
+							+ "error : " + errorData);
+					}
+			});
 		});
 	});
 </script>
