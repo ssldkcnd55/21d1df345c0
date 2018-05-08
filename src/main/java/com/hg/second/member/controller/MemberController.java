@@ -43,35 +43,23 @@ public class MemberController {
 		
 		logger.info("loginCheck() run : " + member);
 		System.out.println("전송와서 저장된 값 : " + member);
-		System.out.println("11111");
 		// 스프링에서는 메소드의 매개변수로 클래스명 레퍼런스 변수 선언하면 자동으로 해당클래스에 대한 객체 생성이 된다
-		String password = "1234";
-		SHAPasswordEncoder shaPasswordEncoder = new SHAPasswordEncoder(512);
-		shaPasswordEncoder.setEncodeHashAsBase64(true);
-		PasswordEncoding passwordEncoding = new PasswordEncoding(shaPasswordEncoder);
-		System.out.println("SHA 암호화: " + passwordEncoding.encode(password));
-		System.out.println("SHA 비교: " + passwordEncoding.matches("1ARVn2Auq2/WAqx2gNrL+q3RNjAzXpUfCXrzkA6d4Xa22yhRLy4AC50E+6UTPoscbo31nbOoq51gvkuXzJ6B2w==", passwordEncoding.encode(password)));
-		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		passwordEncoding = new PasswordEncoding(passwordEncoder);
-		String pass=shaPasswordEncoder.encoder(password, "user01");
-		System.out.println("BCrypt 암호화: " + passwordEncoding.encode(password));
-		System.out.println("BCrypt 비교: " + passwordEncoding.matches(pass, passwordEncoding.encode(password))); 
-System.out.println("/////////////");
-		/*Member loginUser = memberService.selectMember(member);*/
+		Member loginUser = memberService.selectMember(member);
 
-/*		try {
+		try {
 			boolean check = pwdEncoder.matches(member.getUserpwd(), loginUser.getUserpwd());
 
 			if (check == true) {
 				model.addAttribute("loginUser", loginUser);
 				status.setComplete();
+				System.out.println("login pwdEncoder true");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			return "home";
-		}*/
-		return "home";
+		}
 		/* System.out.println("loginUser : " + loginUser); */
 		// session로 할때
 		/*
@@ -150,63 +138,6 @@ System.out.println("/////////////");
 		System.out.println(member.getUserpwd().matches("$2a$10$V7Z3FVZ.JkX.UydnT1h36e4cF5p4rQVrkoRIPRLgaAONMn2Flz6.q"));
 
 		return "test/testCrypto";
-	}
-
-	public class SHAPasswordEncoder implements PasswordEncoder {
-		private ShaPasswordEncoder shaPasswordEncoder;
-		private Object salt = null;
-
-		public SHAPasswordEncoder() {
-			shaPasswordEncoder = new ShaPasswordEncoder();
-		}
-
-		public SHAPasswordEncoder(int sha) {
-			shaPasswordEncoder = new ShaPasswordEncoder(sha);
-		}
-
-		public void setEncodeHashAsBase64(boolean encodeHashAsBase64) {
-			shaPasswordEncoder.setEncodeHashAsBase64(encodeHashAsBase64);
-		}
-
-		public void setSalt(Object salt) {
-			this.salt = salt;
-		}
-
-		@Override
-		public String encode(CharSequence rawPassword) {
-			return shaPasswordEncoder.encodePassword(rawPassword.toString(), salt);
-		}
-		
-		public String encoder(CharSequence rawPassword,String salt) {
-			return shaPasswordEncoder.encodePassword(rawPassword.toString(), salt);
-		}
-
-		@Override
-		public boolean matches(CharSequence rawPassword, String encodedPassword) {
-			return shaPasswordEncoder.isPasswordValid(encodedPassword, rawPassword.toString(), salt);
-		}
-	}
-
-	public class PasswordEncoding implements PasswordEncoder {
-		private PasswordEncoder passwordEncoder;
-
-		public PasswordEncoding() {
-			this.passwordEncoder = new BCryptPasswordEncoder();
-		}
-
-		public PasswordEncoding(PasswordEncoder passwordEncoder) {
-			this.passwordEncoder = passwordEncoder;
-		}
-
-		@Override
-		public String encode(CharSequence rawPassword) {
-			return passwordEncoder.encode(rawPassword);
-		}
-
-		@Override
-		public boolean matches(CharSequence rawPassword, String encodedPassword) {
-			return passwordEncoder.matches(rawPassword, encodedPassword);
-		}
 	}
 
 }

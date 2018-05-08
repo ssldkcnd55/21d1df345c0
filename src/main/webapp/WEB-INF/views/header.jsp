@@ -32,9 +32,8 @@ a {
 				<li><a>home</a></li>
 				<li><a>공지사항</a></li>
 				<li><a>게시글</a></li>
-				<li><a>QnA</a></li>
-				<li><a>자료실</a></li>
-				<li><a href="testView.do">테스트 페이지 이동</a></li>
+				<li><a href="moveAjax.do">스프링 Ajax 테스트페이지 이동</a></li>
+				<li><a href="testView.do">암호화 페이지 이동</a></li>
 			</ul>
 		</nav>
 		<table id="loginFrm">
