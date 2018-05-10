@@ -11,7 +11,7 @@
 <%@ include file="header.jsp" %>
 <hr>
 <br><br><br><br><br>
-<h1>메인 페이지 영역${member.userid } </h1>
+<h1>메인 페이지 영역 </h1>
 
 <br><br><br><br><br><br><br>
 <hr>

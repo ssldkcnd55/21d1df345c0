@@ -1,0 +1,2 @@
+aop = 필요한 시점에서 커밋 롤백 구현시키는거
+aop config안에 pointcut 실행시점 - expression 언제 실행할지

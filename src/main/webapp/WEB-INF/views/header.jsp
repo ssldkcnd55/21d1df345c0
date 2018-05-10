@@ -31,7 +31,7 @@ a {
 			<ul>
 				<li><a>home</a></li>
 				<li><a>공지사항</a></li>
-				<li><a>게시글</a></li>
+				<li><a href="moveFileup.do">파일업로드 테스트</a></li>
 				<li><a href="moveAjax.do">스프링 Ajax 테스트페이지 이동</a></li>
 				<li><a href="testView.do">암호화 페이지 이동</a></li>
 			</ul>
