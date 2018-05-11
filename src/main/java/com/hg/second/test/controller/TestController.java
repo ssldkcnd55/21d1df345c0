@@ -1,6 +1,7 @@
 package com.hg.second.test.controller;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -34,7 +35,13 @@ import com.hg.second.test.model.vo.User;
 @Controller
 public class TestController {
 	// 로그 처리용 객체 의존성 주입(종속객체 주입) 처리
-	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+	/*private static final Logger logger = LoggerFactory.getLogger(TestController.class);*/
+	
+	@RequestMapping("testAOP.do")
+	public String moveAOPPage() {
+		
+		return "test/testAOPPage";
+	}
 
 	@RequestMapping(value = "moveFileup.do", method = RequestMethod.GET)
 	public String moveFileUploadPage() {
@@ -63,14 +70,28 @@ public class TestController {
 		return "home";
 	}
 
+	@RequestMapping("fdown.do")
+	public ModelAndView fileDownMethod(HttpServletRequest request, 
+			@RequestParam("filename") String fileName) {
+		
+		String path = request.getSession().getServletContext()
+				.getRealPath("resources/uploadFiles");
+		String filePath = path + "\\" + fileName;
+		File downFile = new File(filePath);		
+		System.out.println("filePath : " + filePath);
+		//ModelAndView(java.lang.String viewName, java.lang.String modelName, java.lang.Object modelObject)
+		return new ModelAndView("filedown", "downFile", downFile);
+	}
+
 	@RequestMapping(value = "moveAjax.do", method = RequestMethod.GET)
 	public String moveAjaxPage() {
 		return "test/testAjaxPage";
 	}
+	
 
 	@RequestMapping(value = "test1.do", method = RequestMethod.POST)
 	public void test1Method(Sample command, HttpServletResponse response) throws IOException {
-		logger.info("test1.do method run...");
+		/*logger.info("test1.do method run...");*/
 
 		System.out.println("command : " + command);
 		response.setContentType("text/html; charset=utf-8");
@@ -90,7 +111,7 @@ public class TestController {
 	@RequestMapping(value = "test2.do", method = RequestMethod.POST, produces = "application/json; charset=utf8")
 	@ResponseBody // 결과를 response 객체에 담아서 보내라는 뜻의 어노테이션임
 	public String test2Method(HttpServletResponse response) throws IOException {
-		logger.info("test2.do method run...");
+		/*logger.info("test2.do method run...");*/
 
 		JSONObject job = new JSONObject();
 		job.put("no", 123);
@@ -104,7 +125,7 @@ public class TestController {
 	@RequestMapping(value = "test3.do", method = RequestMethod.POST, produces = "application/json; application/text; application/xml; charset=utf8")
 	@ResponseBody
 	public void test3Method(HttpServletResponse response) throws IOException {
-		logger.info("test3.do method run....");
+		/*logger.info("test3.do method run....");*/
 		// List를 json 배열로 만들어서 요청한 뷰로 전송 처리함
 		response.setContentType("application/json; charset=utf-8");
 		List<User> list = new ArrayList<User>();
@@ -144,7 +165,7 @@ public class TestController {
 
 	@RequestMapping(value = "test4.do", method = RequestMethod.POST)
 	public ModelAndView test4Method(ModelAndView mv, HttpServletResponse response) throws UnsupportedEncodingException {
-		logger.info("test4.do method run...");
+		/*logger.info("test4.do method run...");*/
 		response.setContentType("application/json; charset=utf-8");
 
 		// map 객체를 ModelAndView 에 담아서 JsonView 로 보냄
@@ -164,7 +185,7 @@ public class TestController {
 	@RequestMapping(value = "test5.do", method = RequestMethod.POST)
 	public ResponseEntity<String> test5Method(/* HttpServletRequest request, */@RequestBody String param)
 			throws Exception {
-		logger.info("test5.do method run...");
+		/*logger.info("test5.do method run...");*/
 		// request.setCharacterEncoding("utf-8");
 
 		// 전송온 json 문자열을 json 객체로 바꿈
@@ -182,7 +203,7 @@ public class TestController {
 	@RequestMapping(value = "test6.do", method = RequestMethod.POST)
 	public ResponseEntity<String> test6Method(/* HttpServletRequest request, */@RequestBody String param)
 			throws Exception {
-		logger.info("test5.do method run...");
+		/*logger.info("test5.do method run...");*/
 		// request.setCharacterEncoding("utf-8");
 		System.out.println("param : " + param);
 

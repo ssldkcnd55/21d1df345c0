@@ -21,7 +21,7 @@ import com.hg.second.member.model.vo.Member;
 @SessionAttributes("loginUser")
 public class MemberController {
 
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	/*private static final Logger logger = LoggerFactory.getLogger(MemberController.class);*/
 
 	@Autowired
 	private MemberService memberService;
@@ -33,7 +33,7 @@ public class MemberController {
 	public /* ModelAndView */ String loginCheck(Member member,
 			/* ModelAndView mv, */Model model/* HttpSession session */, SessionStatus status) {
 		
-		logger.info("loginCheck() run : " + member);
+		/*logger.info("loginCheck() run : " + member);*/
 		System.out.println("전송와서 저장된 값 : " + member);
 		// 스프링에서는 메소드의 매개변수로 클래스명 레퍼런스 변수 선언하면 자동으로 해당클래스에 대한 객체 생성이 된다
 		Member loginUser = memberService.selectMember(member);

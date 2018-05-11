@@ -6,36 +6,86 @@
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+			<param name="ConversionPattern" value="%d %5p [%c] %m%n" />
 		</layout>
 	</appender>
 	
+	<appender name="fileLogger" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="C:\\Users\\user1\\git\\21d1df345c0\\src\\main\\resources\\logs\\system.log" />
+		<param name="Append" value="true" />
+		<param name="DataPatten" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}][%-5p][%F:%L] - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 
+	%p : debug, info, warn, error, fatal 등의 priority 출력
+	%m : 로그 메세지가 출력
+	%n : new line, 즉 줄바꿈(Enter)을 의미함
+	%d : 로깅 이벤트가 발생한 시간을 출력
+	포맷은 %d{HH:mm:ss, SSS}, %d{yyyy-MM-dd HH:mm:ss, SSS}
+	의 형태로 사용하면 됨. 
+	java.text.SimpleDateFormat 의 포맷을 사용하면 됨.
+	위 클래스가 적용됨.
+	%t : 로그이벤트가 발생된 쓰래드의 이름 출력
+	%% : % 문자 출력
+	%c, %C : 카테고리 출력(full class name)
+			%c{2} a.b.c 를 b.c 로 출력을 의미함
+			%c{1} a.b.c 를 c 만 출력을 의미함
+	%F : 로깅을 발생한 프로그램 파일명 출력
+	%l : 로깅을 발생시킨 caller 정보 출력
+	%L : 로깅을 발생시킨 caller 의 줄번호 출력
+	%M : 로깅이 발생한 method 이름 출력
+	%r : 애플리케이션 시작부터 로깅이 발생한 시점까지의 시간(milliseconds)
+	%x : 로깅이 발생한 스래드와 관련된 NDC(Nested Diagnostic context) 출력
+	%X : NDC 출력, %X{key} 형태로 출력
+	 -->
+
+<!-- 	<appender name="console-infolog" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %5p %m%n" />
+		</layout>
+	</appender> -->
+
 	<!-- Application Loggers -->
 	<logger name="com.hg.second">
 		<level value="info" />
 	</logger>
-	
-	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
-		<level value="info" />
+
+	<!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console-infolog" />
 	</logger>
 	
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+	</logger>
+
+	<!-- 3rdparty Loggers -->
+	<!-- <logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+
 	<logger name="org.springframework.beans">
 		<level value="info" />
 	</logger>
-	
+
 	<logger name="org.springframework.context">
 		<level value="info" />
 	</logger>
 
 	<logger name="org.springframework.web">
 		<level value="info" />
-	</logger>
+	</logger> -->
 
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />
-		<appender-ref ref="console" />
+		<!-- <appender-ref ref="console" /> -->
+		<appender-ref ref="fileLogger" />
 	</root>
 	
 </log4j:configuration>

@@ -55,4 +55,11 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10000000"></beans:property>
 	</beans:bean>
+	
+	<!-- 파일 다운로드 클래스 등록 
+		id 명이 뷰리졸버로 리턴된 뷰이름임.  -->
+	<!-- <beans:bean id="filedown"
+		class="com.hg.second.test.controller.FileDownloadView">
+	</beans:bean> -->
+	
 </beans:beans>

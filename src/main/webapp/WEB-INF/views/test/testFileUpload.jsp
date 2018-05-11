@@ -14,5 +14,8 @@
 첨부파일 : <input type="file" name="file"> <br>
 <input type="submit" value="전송하기">
 </form>
+<br>
+<h1>파일 다운로드 테스트</h1>
+<a href="fdown.do?filename=11.txt">11.txt</a>
 </body>
 </html>

@@ -1,0 +1,268 @@
+[13:11:33][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:11:33][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:11:34][INFO ][BeforeAdvice.java:28] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[13:11:39][INFO ][BeforeAdvice.java:28] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[13:11:39][INFO ][BeforeAdvice.java:28] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[13:11:39][INFO ][BeforeAdvice.java:28] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[13:44:34][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+[13:44:34][ERROR][FrameworkServlet.java:507] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:989)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4931)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5241)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:226)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.obtainPointcutExpression(AspectJExpressionPointcut.java:197)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:176)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:224)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:283)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:315)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:124)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:93)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:74)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:352)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:438)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1714)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
+	... 27 more
+[13:44:59][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+[13:44:59][ERROR][FrameworkServlet.java:507] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:779)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:133)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:226)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.obtainPointcutExpression(AspectJExpressionPointcut.java:197)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:176)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:224)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:283)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:315)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:124)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:93)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:74)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:352)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:438)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1714)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
+	... 35 more
+[13:45:02][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+[13:45:02][ERROR][FrameworkServlet.java:507] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:779)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:133)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:226)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.obtainPointcutExpression(AspectJExpressionPointcut.java:197)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:176)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:224)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:283)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:315)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:124)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:93)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:74)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:352)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:438)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1714)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
+	... 35 more
+[13:45:04][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+[13:45:04][ERROR][FrameworkServlet.java:507] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcContentNegotiationManager': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:779)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:133)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalArgumentException: error can't bind type name 'PoincutCommon'
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:226)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.obtainPointcutExpression(AspectJExpressionPointcut.java:197)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:176)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:224)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:283)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:315)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:124)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:93)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:74)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:352)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:438)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1714)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
+	... 35 more
+[13:47:39][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:47:39][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:47:41][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : home() 메소드 매개변수 갯수 - 0
+[13:47:47][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : home() 메소드 매개변수 갯수 - 0
+[13:47:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[13:47:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[13:47:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[13:49:16][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:49:16][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[13:49:33][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[13:49:34][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[13:49:37][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[13:49:43][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[13:49:43][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[13:49:43][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:05:30][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:05:30][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:34:38][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:34:38][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:34:39][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[14:34:45][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[14:34:48][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[14:34:49][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:34:49][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:36:24][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:36:24][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:36:36][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : home() 메소드 매개변수 갯수 - 0
+[14:36:40][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[14:36:41][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:36:41][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:38:35][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[14:44:12][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:44:12][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:44:13][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[14:44:18][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[14:44:19][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:44:19][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:45:31][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.web.context.support.WebApplicationObjectSupport.setServletContext(javax.servlet.ServletContext)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:45:31][WARN ][CglibAopProxy.java:263] - Unable to proxy interface-implementing method [public final void org.springframework.context.support.ApplicationObjectSupport.setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[14:45:45][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[14:45:46][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : logout() 메소드 매개변수 갯수 - 1
+[14:45:46][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:45:46][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:45:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : loginCheck() 메소드 매개변수 갯수 - 3
+[14:45:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
+[14:45:51][INFO ][BeforeAdvice.java:29] - [메소드 호출전 확인] : selectMember() 메소드 매개변수 갯수 - 1
